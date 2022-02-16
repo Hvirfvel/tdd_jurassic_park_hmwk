@@ -17,7 +17,7 @@ Park.prototype.findMostPopularDinosaur = function() {
     for (let dinosaur of this.dinosaurs) {
         values.push(dinosaur.guestsAttractedPerDay)
     }
-    const max = Math.max.apply(null, values);
+    const max = Math.max(...values);
     for (let dinosaur of this.dinosaurs) {
         if (dinosaur.guestsAttractedPerDay === max) {
             return dinosaur;
@@ -33,6 +33,22 @@ Park.prototype.findDinosaursBySpecies = function(species) {
         }
     } 
     return dinosaursBySpecies;
+}
+
+Park.prototype.visitorsPerDay = function() {
+    let total = 0;
+    for (let dinosaur of this.dinosaurs) {
+        total += dinosaur.guestsAttractedPerDay;
+    }
+    return total;
+}
+
+Park.prototype.visitorsPerYear = function() {
+    return this.visitorsPerDay() * 365;
+}
+
+Park.prototype.totalRevenue = function() {
+    return this.visitorsPerYear() * this.ticketPrice;
 }
 
 module.exports = Park;

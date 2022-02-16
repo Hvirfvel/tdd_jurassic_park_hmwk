@@ -49,10 +49,22 @@ describe('Park', function() {
     assert.deepStrictEqual(park.findDinosaursBySpecies('brontosaurus'), [dinosaur2])
   });
 
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function(){
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(park.visitorsPerDay(), 75)
+  });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function(){
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(park.visitorsPerYear(), 27375);
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function(){
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur2);
+    assert.strictEqual(park.totalRevenue(), 246375)
+  });
 
 });
