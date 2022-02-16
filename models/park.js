@@ -26,7 +26,7 @@ Park.prototype.findMostPopularDinosaur = function() {
 }
 
 Park.prototype.findDinosaursBySpecies = function(species) {
-    let dinosaursBySpecies = [];
+    const dinosaursBySpecies = [];
     for (let dinosaur of this.dinosaurs) {
         if (dinosaur.species === species) {
             dinosaursBySpecies.push(dinosaur);
